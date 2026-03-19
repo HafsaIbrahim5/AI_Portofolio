@@ -1,5 +1,6 @@
 /* ============================================
-   AURORA AI PORTFOLIO STYLES - FINAL STABLE VERSION
+   AURORA AI PORTFOLIO STYLES - FINAL STABLE
+   WITH FULL-WIDTH PROJECT IMAGE
    ============================================ */
 
 :root {
@@ -12,7 +13,6 @@
     --border: rgba(255, 255, 255, 0.08);
 }
 
-/* Base Reset */
 * {
     margin: 0;
     padding: 0;
@@ -291,7 +291,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* Glowing Line Effect (Hossam Style) */
+/* Glowing Line Effect */
 .glow-line {
     width: 150px;
     height: 3px;
@@ -324,7 +324,7 @@ body {
     backdrop-filter: blur(10px);
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-                                                  
+
 /* Block Hover Glow Effect */
 .edu-card:hover, .exp-item:hover, .service-card:hover, .project-card:hover, .testimonial-card:hover {
     transform: translateY(-10px) scale(1.02);
@@ -332,7 +332,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 229, 255, 0.15), 0 0 15px rgba(189, 0, 255, 0.1);
     background: rgba(22, 22, 32, 0.8);
 }
-                                                                        
+
 /* Education Grid */
 .education-grid {
     display: grid;
@@ -398,6 +398,36 @@ body {
 .service-card h3, .project-card h3 {
     color: var(--primary-color);
     margin-bottom: 15px;
+}
+
+/* ========== FULL-WIDTH PROJECT IMAGE ========== */
+.project-card {
+    overflow: hidden; /* يضمن أن الصورة لا تتعدى الحدود الدائرية للبطاقة */
+    padding: 0; /* إزالة padding الداخلي لتملأ الصورة كامل العرض */
+}
+
+.project-card .project-image-full {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 24px 24px 0 0; /* زوايا دائرية للأعلى فقط */
+    margin-bottom: 0;
+    border: none;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+}
+
+.project-card .project-image-full:hover {
+    transform: scale(1.02);
+}
+
+.project-card .project-content {
+    padding: 40px; /* إعادة padding للمحتوى النصي */
+}
+
+/* لضمان توافق باقي المشاريع التي ليس بها صور */
+.project-card:not(:has(.project-image-full)) {
+    padding: 40px;
 }
 
 .project-links {
@@ -607,3 +637,4 @@ body {
     .section-padding { padding: 80px 0; }
     .contact-wrapper { padding: 40px; gap: 30px; }
 }
+
